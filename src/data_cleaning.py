@@ -25,7 +25,7 @@ class DataPreProcessStrategy(DataStrategy):
         """
         try:
             data = data.drop([
-                "order_approval_at",
+                "order_approved_at",
                 "order_delivered_customer_date",
                 "order_delivered_carrier_date",
                 "order_estimated_delivery_date",
@@ -36,7 +36,7 @@ class DataPreProcessStrategy(DataStrategy):
             data["product_length_cm"].fillna(data["product_length_cm"].median(), inplace=True)
             data["product_height_cm"].fillna(data["product_height_cm"].median(), inplace=True)
             data["product_width_cm"].fillna(data["product_width_cm"].median(), inplace=True)
-            data["product_comment_message"].fillna("No review", inplace=True)
+            data["review_comment_message"].fillna("No review", inplace=True)
 
             data = data.select_dtypes(include=[np.number])
             cols_to_drop = ["customer_zip_code_prefix", "order_item_id"]

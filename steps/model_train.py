@@ -13,6 +13,7 @@ def train_model(
     X_test: pd.DataFrame,
     y_train: pd.Series,
     y_test: pd.Series,
+    config: ModelNameConfig
 ) -> RegressorMixin:
     """
     Trains the model on the ingested data
